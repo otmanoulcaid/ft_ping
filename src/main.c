@@ -1,4 +1,4 @@
-#include "ft_ping.h"
+#include "../inc/ft_ping.h"
 
 // Initialize globals
 t_ping_config g_config = {0};
@@ -33,7 +33,7 @@ void handle_sigint(int sig) {
 
 int main(int argc, char **argv) {
     // 1. Parse Arguments
-    parse_args(argc--, ++argv);
+    parse_args(argc, argv);
     
     if (g_config.help) {
         print_help();

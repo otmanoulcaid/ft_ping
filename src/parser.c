@@ -1,5 +1,4 @@
-#include "ft_ping.h"
-
+#include "../inc/ft_ping.h"
 void print_help(void) {
     printf("Usage: ft_ping [OPTION...] HOST ...\n");
     printf("Send ICMP ECHO_REQUEST packets to network hosts.\n\n");
@@ -13,23 +12,21 @@ void print_help(void) {
 void parse_args(int argc, char **argv) {
     int i = 0;
     
-    while (i < argc) {
+    while (++i < argc && argv[i]) {
         if (argv[i][0] == '-') {
-            if (strcmp(argv[i], "-v") == 0 || strcmp(argv[i], "--verbose") == 0) {
+            if (strcmp(argv[i], "-v") == 0 || strcmp(argv[i], "--verbose") == 0)
                 g_config.verbose = true;
-            } else if (strcmp(argv[i], "-?") == 0 || strcmp(argv[i], "-h") == 0 || strcmp(argv[i], "--help") == 0) {
+            else if (strcmp(argv[i], "-?") == 0 || strcmp(argv[i], "-h") == 0 || strcmp(argv[i], "--help") == 0)
                 g_config.help = true;
-            } else {
+            else {
                 fprintf(stderr, "ft_ping: invalid option -- '%s'\n", argv[i]);
                 fprintf(stderr, "Try 'ft_ping -?' for more information.\n");
                 exit(1);
             }
         } else {
             // Assume it's the destination host
-            if (!g_config.dest_name) {
+            if (!g_config.dest_name)
                 g_config.dest_name = argv[i];
-            }
         }
-        i++;
     }
 }

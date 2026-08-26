@@ -1,5 +1,4 @@
-#include "ft_ping.h"
-
+#include "../inc/ft_ping.h"
 // Calculate Internet Checksum (RFC 1071)
 unsigned short calculate_checksum(void *b, int len) {
     unsigned short *buf = b;

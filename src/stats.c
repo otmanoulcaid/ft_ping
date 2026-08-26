@@ -1,5 +1,4 @@
-#include "ft_ping.h"
-
+#include "../inc/ft_ping.h"
 // Statistics are currently handled directly in:
 // - main.c (printing on SIGINT)
 // - receiver.c (updating on receive)

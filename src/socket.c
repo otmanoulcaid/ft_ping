@@ -1,5 +1,4 @@
-#include "ft_ping.h"
-
+#include "../inc/ft_ping.h"
 int create_socket(void) {
     int sockfd;
 

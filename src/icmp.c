@@ -1,5 +1,4 @@
-#include "ft_ping.h"
-
+#include "../inc/ft_ping.h"
 void send_ping(int sockfd) {
     char packet[PING_PACKET_SIZE];
     struct icmphdr *icmp = (struct icmphdr *)packet;

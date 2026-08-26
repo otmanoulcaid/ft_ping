@@ -1,14 +1,10 @@
-#include "ft_ping.h"
-
+#include "../inc/ft_ping.h"
 void resolve_dns(void) {
     struct addrinfo hints;
     struct addrinfo *result;
     
     memset(&hints, 0, sizeof(struct addrinfo));
-    hints.ai_family = AF_INET; // IPv4 only per subject
-    // Remove SOCK_RAW and IPPROTO_ICMP constraints as they can cause getaddrinfo to fail
-    hints.ai_socktype = 0;
-    hints.ai_protocol = 0;
+    hints.ai_family = AF_INET; // IPv4 only resolution
 
     int s = getaddrinfo(g_config.dest_name, NULL, &hints, &result);
     if (s != 0) {
